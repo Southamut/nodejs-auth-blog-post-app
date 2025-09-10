@@ -12,6 +12,7 @@ export const protect = async (req, res, next) => {
         })
     }
 
+    // remove Bearer from token
     const tokenWithoutBearer = token.split(" ")[1];
 
     jwt.verify(tokenWithoutBearer, process.env.SECRET_KEY, (err, payload) => {
